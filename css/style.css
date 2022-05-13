@@ -1,0 +1,419 @@
+:root {
+    --red-color:#f25454;
+    --black-color:#000;
+    --light-red:#f25454d1;
+    --section-color:#fafafa;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 1.75em;
+    color: #666
+}
+
+.main-head {
+    margin-top: 80px;
+    margin-bottom: 60px;
+}
+.main-head .head {
+    position: relative;
+    margin-bottom: 60px;
+}
+.main-head .head:after {
+    content: "";
+    position: absolute;
+    bottom: -60px;
+    height: 2px;
+    width: 40px;
+    background: var(--black-color);
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width .5s;
+}
+.main-head h2 {
+    font-size: 2.5rem;
+    color: var(--black-color);
+    font-weight: bolder;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+.main-head .letter {
+    font-size: 4rem;
+    z-index: 0;
+    font-weight: bolder;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    color: #e4e4e4;
+}
+.main-head .lead {
+    width: 60%;
+    padding-top: 80px;
+    margin: auto;
+}
+.main-head:hover .head:after {
+    width: 60px;
+}
+@media (max-width:992px) {
+    .main-head .lead {
+        width: 90%;
+    }
+}
+
+/*start navbar*/
+
+.navbar {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+.navbar-toggler svg:hover {
+    color: var(--red-color) !important;
+}
+.navbar-light .navbar-nav .nav-link.active,
+ .navbar-light .navbar-nav .show>.nav-link {
+    color:var(--red-color)
+}
+.navbar-light .navbar-nav .nav-link {
+    transition: all .3s ease-in-out;
+}
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+    color: var(--red-color)
+}
+.navbar .social-links svg {
+    transition: color .3s;
+    cursor: pointer;
+}
+.navbar .social-links svg:hover {
+    color: var(--red-color);
+}
+@media (min-width: 992px) {
+
+    .navbar-expand-lg .navbar-nav .nav-link {
+        margin: 0 10px;
+    }
+    .navbar-light .navbar-nav .nav-link {
+        color: #fff;
+    }
+}
+@media (max-width:992px) {
+    .navbar-nav {
+        background: #fff;
+        padding: 20px;
+    }
+    .navbar-light .navbar-nav .nav-link {
+        color: var(--black-color)
+    }
+}
+
+/*End navbar*/
+
+/*start header*/
+
+.header .carousel-inner , .carousel-item , .carousel-item img{
+    min-height: 100vh;
+    width: 100%;
+}
+.header .carousel-item:first-of-type {
+    background: url('../images/slideshow-1.jpg') center;
+    background-size: cover;
+}
+.header .carousel-item:nth-of-type(2) {
+    background: url('../images/slideshow-2.jpg');
+    background-size: cover;
+}
+.header .carousel-item:nth-of-type(3) {
+    background: url('../images/slideshow-3.jpg');
+    background-size: cover;
+}
+.header .carousel-control-next,
+.header .carousel-control-prev {
+    width: 50px;
+    height: 50px;
+    top: 300px;
+    position: absolute;
+    border: 1px solid #e4e4e4;
+}
+.header .carousel-control-next {
+    left: 0;
+    top: 350px;
+}
+.header .carousel-control-next svg,
+.header .carousel-control-prev svg {
+    color: #fff;
+    position: absolute;
+    z-index: 9;
+    transition: all .3s;
+}
+.header .carousel-control-next:focus, .carousel-control-next:hover, .carousel-control-prev:focus, .carousel-control-prev:hover {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+.header .carousel-control-next:after,
+.header .carousel-control-prev:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    transition: all .3s;
+}
+.header .carousel-control-next:hover:after,
+.header .carousel-control-prev:hover:after {
+    width: 100%;
+}
+.header .carousel-control-next:hover svg,
+.header .carousel-control-prev:hover svg {
+    color: var(--red-color);
+}
+.header .carousel-control-next ,
+.header .carousel-control-prev {
+    opacity: 1;
+}
+.header .animate {
+    top: 85%;
+    z-index: 99;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: all .3s;
+}
+.header .animate:hover {
+    border-color: var(--red-color);
+}
+.header .animate:hover::after { 
+    background-color: var(--red-color);
+}
+.header .animate::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height:10px;
+    border-radius: 50%;
+    background-color: #fff;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5px;
+    overflow: hidden;
+    animation: moving 1s ease-in-out infinite;
+    transition: all .3s;
+}
+.header .carousel-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header .carousel-item h1 {
+    position: absolute;
+    white-space: nowrap;
+    left: 100%;
+    font-size: calc(2rem + 4vw);
+}
+.header .carousel-item.active h1 {
+    animation: headerMov 1s ease-in-out forwards;   
+}
+
+@keyframes moving {
+    0% {
+        top: 5px;
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        top: 50%;
+        opacity: 0;
+    }
+}
+
+@keyframes headerMov {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+
+/*End header*/
+
+
+/*start About*/
+
+.About article .lead {
+    font-size: 14px !important;
+}
+
+/*End About*/
+
+/*start team*/
+
+
+.team  figure figcaption {  
+    background: var(--light-red);
+}
+.team  figure {
+    overflow: hidden;
+}
+.team  figure img {
+    transition: all .3s;
+}
+.team  figure figcaption {
+    opacity: 0;
+    transition: all .3s;
+}
+.team  figure figcaption svg {
+    cursor: pointer;
+}
+.team-box:hover figure figcaption {
+    opacity: 1;
+}
+.team-box:hover figure img {
+    transform: scale(1.1, 1.1);
+}
+.team-box:hover h5 {
+    color: var(--red-color) !important;
+}
+
+/*End team*/
+
+/*start have idea*/
+
+.have-idea button {
+    background: var(--red-color);
+}
+.have-idea button:hover {
+    background-color: var(--light-red);
+}
+
+/*End have idea*/
+
+/*start services*/
+
+.services {
+    background: var(--section-color);
+}
+.icon-box svg {
+    color: var(--red-color);
+}
+.services .icon-box h5 {
+    transition: all .3s;
+}
+.services .icon-box:hover h5 {
+    color: var(--red-color) !important;
+}
+
+/*End services*/
+
+
+/*start contact*/
+
+.contact {
+    background-color: var(--section-color);
+}
+.contact-info li h5{
+    transition: all .3s;
+}
+.contact-info li:hover h5 {
+    color: var(--red-color) !important;
+}
+.contact svg {
+    color: var(--red-color);
+}
+.contact .form-control {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 0;
+    border: 2px solid #eee;
+}
+.contact ::placeholder {
+    color: #a6a6a6;
+}
+.form-control:focus {
+    box-shadow: none;
+    border-color: var(--red-color);
+}
+.contact form button {
+    background: var(--red-color);
+    transition: all .3s;
+}
+.contact form button:hover {
+    background-color: var(--light-red);
+}
+
+/*End contact*/
+
+/*start the End*/
+
+.the-end {
+    position: relative;
+    background-color: #222;
+    padding: 60px 0;
+    width: 100%;
+    background-image: url(../images/download.png);
+    background-position: center center;
+    background-size: contain;
+    color: #b0b0b0;
+}
+.the-end li {
+    transition: all .3s;
+    cursor: pointer;
+}
+
+.the-end li:hover {
+    color: var(--red-color);
+    border-color: var(--red-color) !important;
+}
+.up-arrow {
+    top: -20px;
+    width: 50px;
+    height: 50px;
+    background: var(--light-red);
+    transition: all .3s;
+    cursor: pointer;
+}
+.up-arrow:hover {
+    background-color: var(--red-color);
+}
+
+/*End the End*/
+
+
+/*start footer*/
+
+.footer {
+    background: #1a1a1a;
+}
+.footer .socila-links svg,
+.footer .copy {
+    transition: all .3s;
+    cursor: pointer;
+}
+.footer .socila-links svg:hover,
+.footer .copy:hover {
+    color: var(--red-color) !important;
+} 
+
+/*End footer*/
+
+/*start side bar*/
+
+.side-bar {
+    z-index: 999;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius:5px;
+    transition: all .3s;
+    top: 150px;
+}
+.side-bar:hover {
+    opacity: 0.7;
+}
+
+/*End side bar*/
