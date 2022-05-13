@@ -310,3 +310,40 @@ body {
 
 /*End services*/
 
+
+/*start contact*/
+
+.contact {
+    background-color: var(--section-color);
+}
+.contact-info li h5{
+    transition: all .3s;
+}
+.contact-info li:hover h5 {
+    color: var(--red-color) !important;
+}
+.contact svg {
+    color: var(--red-color);
+}
+.contact .form-control {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 0;
+    border: 2px solid #eee;
+}
+.contact ::placeholder {
+    color: #a6a6a6;
+}
+.form-control:focus {
+    box-shadow: none;
+    border-color: var(--red-color);
+}
+.contact form button {
+    background: var(--red-color);
+    transition: all .3s;
+}
+.contact form button:hover {
+    background-color: var(--light-red);
+}
+
+/*End contact*/
